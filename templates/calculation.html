@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/calculation.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.3.4/vue.cjs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.js"></script>
+	<title>Диплом</title>
+</head>
+<body>
+	<header id="header" class="header">
+		<div class="navigation">
+			<div class="logo">
+                <a href="#"><img src="{% static "img/logo.jpg" %}" alt="logo"></a>
+			</div>
+			<ul class="menu">
+				<li><a href="#">Главная</a></li>
+				<li><a href="#">Калькулятор</a></li>
+				<li><a href="#">Контакты</a></li>
+			</ul>
+		</div>
+	</header>
+	<section id="main" class="main">
+		<div class="greetings">
+			<h1 class="main_title">Оценка стоимости проекта</h1>
+			<p class="main_text">Не следует, однако забывать, что консультация с широким активом играет важную роль в формировании системы обучения кадров, соответствует насущным потребностям. Равным образом постоянное информационно-пропагандистское обеспечение нашей деятельности представляет собой интересный эксперимент проверки направлений прогрессивного развития.</p>
+		</div>
+	</section>
+	<section id="templates" class="templates">
+    {% verbatim %}
+		<div id="app">
+			<div class="container">
+				<div class="left">
+                    <div v-for="(i, index) in categories">
+                        <div class="block">
+                            <h2 class="title">{{ i.name_category }}</h2>
+                                <div v-for="j in works">
+                                    <div class="clientChoice">
+                                         <div v-if="i.id == j.category">
+                                            <div v-if="i.category_view == 'radio'">
+                                                <div class="choice">
+                                                    <label class="custom-radio">
+                                                        <input type="radio" :name="i.name_category" :value="j" v-model="selected_works[index]" >
+                                                        <span>{{ j.name_work }}</span>
+                                                        <div class="price">{{ j.cost }}<span> Р</span></div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div v-else>
+                                                <div class="choice">
+                                                    <label class="custom-checkbox">
+                                                        <input type="checkbox" :value="j" v-model="selected_works[index]"/>
+                                                        <span>{{ j.name_work }}</span>
+                                                        <div class="price">{{ j.cost }}<span> Р</span></div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="right">
+					<p class="title">Примерная стоимость:</p>
+                    <p>{{ sum }}<span>   Р</span></p>
+                    <div class="btn">
+						<a href="#win1" class="button">Оставить заявку</a>
+					</div>
+                    <a href="#x" class="overlay" id="win1"></a>
+					<div class="popup">
+						<div class="form">
+							<h3 class="title">Заполните форму для получения сметы</h3>
+							<p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<div class="one">
+								<input class="field" type="text" placeholder="Ваше имя" v-model="name_user">
+							</div>
+							<div class="two">
+								<input class="field" type="email" placeholder="Ваш E-mail" v-model="email_user">
+							</div>
+							<div class="three">
+								<input class="field" type="text" placeholder="Ваш номер телефона" v-model="phone_user">
+							</div>
+                            <div class="btn">
+                                <button @click="submit">Получить смету</button>
+							    <a href="#" class="button">Получить смету</a>
+                            </div>
+						</div>
+						<a class="close"title="Закрыть" href="#close"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endverbatim %}
+	</section>
+	<footer id="footer" class="footer">
+		<div class="basement">
+			<p class="contacts">
+				<a href="#win2">Версия для модератора</a>
+			</p>
+			<a href="#x" class="overlay" id="win2"></a>
+			<div class="popup">
+				<div class="form">
+					<h3 class="title_form">Авторизация</h3>
+					<div class="one">
+						<input class="field" type="text" placeholder="Введите имя">
+					</div>
+					<div class="two">
+						<input class="field" type="email" placeholder="Введите E-mail">
+					</div>
+					<div class="three">
+						<input class="field" type="password" placeholder="Введите пароль">
+					</div>
+					<div class="four">
+						<input class="field" type="password" placeholder="Повторите пароль">
+					</div>
+					<div class="btn">
+						<a href="#" class="button">Войти</a>
+					</div>
+				</div>
+				<a class="close"title="Закрыть" href="#close"></a>
+			</div>
+		</div>
+	</footer>
+<script src="/static/js/script.js"></script>
+</body>
+</html>

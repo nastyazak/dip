@@ -1,0 +1,509 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: #fff;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.navigation {
+	width: 90%;
+	margin: 1% auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+ul {
+  list-style: none;
+  float: right;
+  line-height: 70px;
+  text-align:center;
+}
+
+li a {
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  color: #000;
+  text-transform: uppercase;
+}
+
+li {
+  display: inline-block;
+  margin-left: 40px;
+  transition: .5s linear;
+}
+
+li a:after {
+  content: "";
+  width: 0;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  background: #4d8bef;
+  transition: all 0.3s linear;
+}
+
+li a:hover:after{
+  width: 100%;
+}
+
+
+.main {
+	width: 100%;
+	background: url("../img/7.jpg") center center no-repeat;
+  background-size: cover;
+}
+
+.greetings {
+	width: 70%;
+	margin: 7% auto 0;
+	padding-top: 10%;
+}
+
+.main_title, .main_text {
+	text-align: center;
+	color: white;
+}
+
+.main_title {
+  margin-bottom: 20px;
+}
+
+
+.container {
+	width: 90%;
+	margin: 7% auto;
+	display: grid;
+	grid-template-columns: 60% 40%;
+}
+
+.block {
+	border: 2px solid #5792CE;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.title {
+	margin-bottom: 20px;
+}
+
+.choice {
+	margin-bottom: 10px;
+}
+
+.price {
+	float: right;
+}
+
+
+
+/* для элемента input c type="radio" */
+.custom-radio>input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+/* для элемента label связанного с .custom-radio */
+.custom-radio>span {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+/* создание в label псевдоэлемента  before со следующими стилями */
+.custom-radio>span::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+/* стили при наведении курсора на радио */
+.custom-radio>input:not(:disabled):not(:checked)+span:hover::before {
+  border-color: #b3d7ff;
+}
+
+/* стили для активной радиокнопки (при нажатии на неё) */
+.custom-radio>input:not(:disabled):active+span::before {
+  background-color: #b3d7ff;
+  border-color: #b3d7ff;
+}
+
+/* стили для радиокнопки, находящейся в фокусе */
+.custom-radio>input:focus+span::before {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* стили для радиокнопки, находящейся в фокусе и не находящейся в состоянии checked */
+.custom-radio>input:focus:not(:checked)+span::before {
+  border-color: #80bdff;
+}
+
+/* стили для радиокнопки, находящейся в состоянии checked */
+.custom-radio>input:checked+span::before {
+  border-color: #0b76ef;
+  background-color: #0b76ef;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+}
+
+/* стили для радиокнопки, находящейся в состоянии disabled */
+.custom-radio>input:disabled+span::before {
+  background-color: #e9ecef;
+}
+
+
+
+/* для элемента input c type="checkbox" */
+.custom-checkbox>input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+/* для элемента label, связанного с .custom-checkbox */
+.custom-checkbox>span {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+/* создание в label псевдоэлемента before со следующими стилями */
+.custom-checkbox>span::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+/* стили при наведении курсора на checkbox */
+.custom-checkbox>input:not(:disabled):not(:checked)+span:hover::before {
+  border-color: #b3d7ff;
+}
+
+/* стили для активного чекбокса (при нажатии на него) */
+.custom-checkbox>input:not(:disabled):active+span::before {
+  background-color: #b3d7ff;
+  border-color: #b3d7ff;
+}
+
+/* стили для чекбокса, находящегося в фокусе */
+.custom-checkbox>input:focus+span::before {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* стили для чекбокса, находящегося в фокусе и не находящегося в состоянии checked */
+.custom-checkbox>input:focus:not(:checked)+span::before {
+  border-color: #80bdff;
+}
+
+/* стили для чекбокса, находящегося в состоянии checked */
+.custom-checkbox>input:checked+span::before {
+  border-color: #0b76ef;
+  background-color: #0b76ef;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+/* стили для чекбокса, находящегося в состоянии disabled */
+.custom-checkbox>input:disabled+span::before {
+  background-color: #e9ecef;
+}
+
+
+
+.right {
+	position: sticky;
+	top: 21%;
+  /*margin-bottom: -10em;*/
+	float: right;
+	border: 2px solid #5792CE;
+  border-radius: 10px;
+  padding: 20px;
+  margin-left: 30px;
+  height: 142px;
+}
+
+.btn {
+	 text-align: center;
+}
+
+a.button {
+	margin-top: 20px;
+	justify-content: center;
+  display: inline-block;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 -1px rgba(0,0,0,.5);
+  user-select: none;
+  padding: .7em 1.5em;
+  border: 1px solid rgb(80,32,0);
+  border-radius: 5px;
+  outline: none;
+  background: linear-gradient(90deg, rgba(0,140,229,1) 0%, rgba(108,168,255,1) 0%, rgba(0,115,224,1) 45%, rgba(0,64,168,1) 100%);
+  box-shadow:
+   0 6px rgb(86,38,6),
+   0 3px 15px rgba(0,0,0,.4),
+   inset 0 1px rgba(255,255,255,.3),
+   inset 0 0 3px rgba(255,255,255,.5);
+  transition: .4s;
+}
+
+.button:hover {
+  background: linear-gradient(90deg, rgba(0,140,229,1) 0%, rgba(58,119,207,1) 0%, rgba(2,15,176,1) 45%, rgba(9,38,85,1) 100%);
+}
+
+.button:active {
+  background: linear-gradient(90deg, rgba(0,140,229,1) 0%, rgba(15,31,162,1) 0%, rgba(3,11,111,1) 45%, rgba(0,16,42,1) 100%);
+  box-shadow:
+   0 2px rgb(86,38,6),
+   0 1px 6px rgba(0,0,0,.4),
+   inset 0 1px rgba(255,255,255,.3),
+   inset 0 0 3px rgba(255,255,255,.5);
+  -webkit-transform: translate(0, 4px);
+  transform: translate(0, 4px);
+}
+
+
+
+/* Базовые стили слоя, затемнения и модального окна */
+.overlay {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+  /* фон затемнения */
+  background-color: rgba(0, 0, 0, 0.65);
+  position: fixed; /* фиксированное позиционирование */
+  cursor: default; /* тип курсора */
+}
+
+/* активируем слой затемнения */
+.overlay:target {
+  display: block;
+}
+
+/* стили модального окна */
+.popup {
+  top: -100%;
+  right: 0;
+  left: 50%;
+  font-size: 14px;
+  z-index: 20;
+  margin: 0;
+  width: 35%;
+  height: 69%;
+  min-width: 320px;
+  max-width: 600px;
+  /* фиксированное позиционирование, окно стабильно при прокрутке */
+  position: fixed;
+  padding: 15px;
+  border: 1px solid #383838;
+  background: #fefefe;
+  /* скругление углов */
+  border-radius: 4px;
+  font: 14px/18px 'Tahoma', Arial, sans-serif;
+  /* внешняя тень */
+  box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
+  transform: translate(-50%, -500%);
+  transition: transform 0.6s ease-out;
+}
+
+/* активируем модальный блок */
+.overlay:target+.popup {
+  transform: translate(-50%, 0);
+  top: 20%;
+}
+
+/* формируем кнопку закрытия */
+.close {
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  padding: 0;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  background-color: rgba(61, 61, 61, 0.8);
+  box-shadow: 0px 0px 10px #000;
+  text-align: center;
+  text-decoration: none;
+  font: 13px/20px 'Tahoma', Arial, sans-serif;
+  font-weight: bold;
+  transition: all ease .8s;
+}
+
+.close:before {
+  color: rgba(255, 255, 255, 0.9);
+  content: "X";
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+  font-size: 12px;
+}
+
+.close:hover {
+  background-color: rgba(252, 20, 0, 0.8);
+  transform: rotate(360deg);
+}
+
+
+
+.form {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.title_form, .text_form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 15px;
+  height: 45px;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+
+.footer {
+	padding-top: 1px;
+	padding-bottom: 1px;
+  background: url("../img/7.jpg") center center no-repeat;
+  background-size: cover;
+	/*background: #164d7a;*/
+	/*background-image: linear-gradient(-225deg, #3D4E81 0%, #5753C9 48%, #6E7FF3 100%);*/
+	/*background: linear-gradient(90deg, rgba(4,0,72,1) 0%, rgba(9,9,121,1) 37%, rgba(7,50,153,1) 64%, rgba(0,18,193,1) 100%);*/
+}
+
+.basement {
+	width: 90%;
+	margin: 7% auto;
+}
+
+.contacts a {
+  text-decoration: none;
+	color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*для index*/
+.post-wrap {
+   /*max-width: 1120px;*/
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+.post-item {
+   padding: 10px;
+}
+.post-item-wrap {
+   background: #F7F7F2;
+   position: relative;
+}
+.post-item-wrap:after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+   background: #C9F2C7;
+   transform: rotate(1deg);
+   transform-origin: left bottom;
+   transition: .3s ease-in-out;
+}
+.post-item-wrap:hover:after {
+   top: 5px;
+   left: 5px;
+   transform: rotate(2deg);
+}
+.post-link {
+   text-decoration: none;
+   display: block;
+   padding: 30px;
+}
+.post-title {
+   color: #33261D;
+   margin-bottom: 15px;
+   transition: .3s ease-in-out;
+}
+
+.post-item-wrap:hover .post-title {
+   color: #C9F2C7;
+}
+
+.post-content {
+   color: #A69888;
+   font-size: 14px;
+}
+
+@media (min-width: 768px) {
+   .post-item {
+      flex-basis: 50%;
+      flex-shrink: 0;
+   }
+}
+
+@media (min-width: 960px) {
+   .post-item {
+      flex-basis: 33.333333333%;
+   }
+}
